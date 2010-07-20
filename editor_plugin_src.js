@@ -25,7 +25,7 @@
             if (n === 'tablegrid') {
                 var c = cm.createSplitButton('grid', {
                     title : 'tablegrid.create_table',
-                    'image': t.url + '/img/table.gif',
+                    'image': t.url + '/img/table-grid.gif',
                     onclick : function() {
                         ed.execCommand('mceInsertTable');
                     }
