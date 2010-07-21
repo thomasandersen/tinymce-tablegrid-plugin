@@ -12,7 +12,6 @@
  * Warning!
  *
  * This plugin is under development and should not be used for production.
- * TODO: dom.hide(e) and dom.bind(e, 'mouseover') does not work in Opera.
  */
 
 (function() {
