@@ -1,6 +1,6 @@
 .tg-menu-container, .tg-grid-border-color, .tg-grid, .tg-menu-info { margin: 0; padding: 0 }
-.tg-menu-container { display:none; position:absolute; z-index: 200000; background-color:#fff; padding:0; }
-.tg-grid-wrapper { padding:0;background-color:#fff; border:1px solid #ccc }
+.tg-menu-container { display:none; position:absolute; z-index: 200000; background-color:#fff; padding:0; border: 0; float:left }
+.tg-grid-wrapper { padding:0; background-color:#fff; border:1px solid #ccc; }
 .tg-grid { border:0 }
 .tg-grid td a { display: block; width:10px; height:10px; cursor:default; border:1px solid #ccc; overflow:hidden }
 .tg-grid td a.tg-blank { background-color:#fff; }

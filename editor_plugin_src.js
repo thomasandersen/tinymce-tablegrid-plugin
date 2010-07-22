@@ -112,41 +112,60 @@
         // Internal functions
 
         _createPopupMenu : function() {
-            var t = this, ed = t.ed, dom = ed.dom;
-            var menu = dom.create('div', {
+            var t = this, ed = t.ed, dom = tinymce.DOM;
+            var table, tBody, tr, td, gridContainer, grid, infoContainer;
+
+            table = dom.create('table', {
+                'cellpadding' : 0,
+                'cellspacing' : 0,
                 'id' : ed.id + '-tg-menu-container',
                 'class' : 'tg-menu-container',
                 'style' : 'display:none'
             });
-            var gridWrapper = dom.create('div', {
+
+            tBody = dom.create('tbody');
+            tr = dom.create('tr');
+            td = dom.create('td');
+
+            dom.add(table, tBody);
+            dom.add(tBody, tr);
+            dom.add(tr, td);
+
+            gridContainer = dom.create('div', {
                 'id' : ed.id + '-tg-grid-wrapper',
                 'class' : 'tg-grid-wrapper'
             });
-            var grid = t._createGrid();
-            var info = dom.create('div', {
+
+            grid = t._createGrid();
+
+            tr = dom.create('tr');
+            td = dom.create('td');
+
+            infoContainer = dom.create('div', {
                 'id' : ed.id + '-tg-menu-info',
                 'class' : 'tg-menu-info'
             }, '0 x 0');
 
-            dom.add(menu, gridWrapper);
-            dom.add(gridWrapper, grid);
-            dom.add(menu, info);
-
-            dom.bind(info, 'mouseover', function(e) {
+            dom.bind(infoContainer, 'mouseover', function(e) {
                 var closeText = ed.getLang('tablegrid.close_grid');
                 e.target.innerHTML = closeText;
                 e.target.title = closeText;
             });
 
-            dom.bind(info, 'click', function(e) {
+            dom.bind(infoContainer, 'click', function(e) {
                 t._hidePopupMenu();
             });
 
-            dom.add(dom.select('body', document)[0], menu);
+            dom.add(td, gridContainer);
+            dom.add(gridContainer, grid);
+            dom.add(tBody, tr);
+            dom.add(tr, td);
+            dom.add(td, infoContainer);
+            dom.add(dom.select('body', document)[0], table);
         },
 
         _showPopupMenu : function(c) {
-            var t = this, ed = t.ed, dom = ed.dom;
+            var t = this, ed = t.ed, dom = tinymce.DOM;
             var menu = dom.select('#' + ed.id + '-tg-menu-container', document)[0];
 
             // IE seems to loose the caret when the grid button is clicked.
@@ -185,7 +204,7 @@
 
         _hidePopupMenu : function () {
 
-            var t = this, ed = t.ed, dom = ed.dom;
+            var t = this, ed = t.ed, dom = tinymce.DOM;
             var menu = dom.select('#' + ed.id + '-tg-menu-container', document)[0];
             var splitButton = dom.select('#' + ed.id + '_grid', document)[0];
 
@@ -200,7 +219,7 @@
         },
 
         _createGrid : function() {
-            var t = this, ed = t.ed, dom = ed.dom, trElement, tdElement, tbodyElement, i, j;
+            var t = this, ed = t.ed, dom = tinymce.DOM, trElement, tdElement, tbodyElement, i, j;
             var gridRowSize = parseInt(ed.getParam('tablegrid_row_size')) || 10;
             var gridColSize = parseInt(ed.getParam('tablegrid_col_size')) || 10;
             var tableElement = dom.create('table', {
@@ -208,7 +227,7 @@
                 'cellSpacing' : 1,
                 'cellPadding' : 0
             });
-            
+
             tbodyElement = dom.create('tbody');
 
             for (i = 0; i < gridRowSize; i++) {
@@ -227,7 +246,7 @@
         },
 
         _createCell : function (rowIndex, columnIndex) {
-            var t = this, ed = t.ed, dom = ed.dom, rowLn, cellLn;
+            var t = this, ed = t.ed, dom = tinymce.DOM, rowLn, cellLn;
             var tdElement = dom.create('td');
             var aElement = dom.create('a', {
                 'row' : rowIndex,
@@ -253,10 +272,11 @@
         },
 
         _fillCells: function (selected) {
-            var t = this, ed = t.ed, dom = ed.dom;
+            var t = this, ed = t.ed, dom = tinymce.DOM;
             var menuContainer = dom.select('#' + ed.id + '-tg-menu-container', document)[0];
+            var gridWrapper = dom.select('#' + ed.id + '-tg-grid-wrapper', document)[0];
             var info = dom.select('#' + ed.id + '-tg-menu-info', menuContainer)[0];
-            var trElements = dom.select('tr', menuContainer);
+            var trElements = dom.select('tr', gridWrapper);
             var rowStop = parseInt(dom.getAttrib(selected, 'row')) + 1, colStop = parseInt(dom.getAttrib(selected, 'col')) + 1;
             var aElements, i, j;
 
@@ -276,7 +296,7 @@
         },
 
         _clearGrid: function() {
-            var t = this, ed = t.ed, dom = ed.dom, i;
+            var t = this, ed = t.ed, dom = tinymce.DOM, i;
             var menuContainer = dom.select('#' + ed.id + '-tg-menu-container', document)[0];
             var info = dom.select('#' + ed.id + '-tg-menu-info', menuContainer)[0];
             var aElements = dom.select('a', menuContainer);
@@ -351,7 +371,7 @@
             ed.execCommand('mceEndUndoLevel');
         },
 
-        getPos : function(owner){
+        getPos : function(owner) {
             if(owner == undefined){
                 return {top : 0, left:0 , width : 0, height : 0};
             }
