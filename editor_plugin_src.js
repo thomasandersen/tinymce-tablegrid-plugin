@@ -105,7 +105,7 @@
                 author : 'Thomas Andersen (thomas@mr-andersen.no)',
                 authorurl : 'http://www.mr-andersen.no.com',
                 infourl : 'http://www.mr-andersen.no.com',
-                version : '0.1'
+                version : '1.0'
             };
         },
 
@@ -179,17 +179,13 @@
             }
 
             var splitButton = dom.select('#' + ed.id + '_grid', document)[0];
-            /*
+
             // The DOM getPos and getRect does not seem to play well in IE if the element is not in the editor document.
             var splitButtonPos = dom.getPos(splitButton, document.getElementsByTagName('body')[0]);
             var splitButtonRect = dom.getRect(splitButton);
             var menuTopPos = splitButtonPos.y + splitButtonRect.h;
             var menuLeftPos = splitButtonPos.x;
-            */
-            var splitButtonRect = t.getPos(splitButton);
-            var menuTopPos = splitButtonRect.top + splitButtonRect.height;
-            var menuLeftPos = splitButtonRect.left;
-
+           
             dom.addClass(splitButton, 'mceSplitButtonSelected');
 
             dom.show(menu);
@@ -369,30 +365,6 @@
 
             ed.addVisual();
             ed.execCommand('mceEndUndoLevel');
-        },
-
-        getPos : function(owner) {
-            if(owner == undefined){
-                return {top : 0, left:0 , width : 0, height : 0};
-            }
-
-            var e = owner;
-            var oTop = e.offsetTop;
-            var oLeft = e.offsetLeft;
-            var oWidth = e.offsetWidth;
-            var oHeight = e.offsetHeight;
-            while(e = e.offsetParent)
-            {
-                oTop += e.offsetTop;
-                oLeft += e.offsetLeft;
-            }
-
-            return {
-                top : oTop,
-                left : oLeft,
-                width : oWidth,
-                height : oHeight
-            }
         }
     });
 
