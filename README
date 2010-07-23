@@ -4,10 +4,10 @@ Draw a table on a grid and insert it into TinyMCE
 
 Installation
 ============
-Make sure the table plug-in is added to the plug-ins configuration.
-Extract the zip to the TinyMCE plug-ins folder.
-Add tablegrid to the plug-ins configuration.
-Add tablegrid to the theme_advanced_buttons_n configuration.
+* Make sure the table plug-in is added to the plug-ins configuration.
+* Extract the zip to the TinyMCE plug-ins folder.
+* Add tablegrid to the plug-ins configuration.
+* Add tablegrid to the theme_advanced_buttons_n configuration.
 
 If you are using the tablecontrols button you can replace it with this setup:
 
@@ -16,6 +16,7 @@ tablegrid,|,row_props,cell_props,|,row_before,row_after,delete_row,|,col_before,
 Optional Configuration
 ======================
 Add these to the TinyMCE configuration object:
+
 tablegrid_row_size: <int> - Amount of rows in the grid.
 tablegrid_col_size: <int> - Amount of columns in the grid.
 
