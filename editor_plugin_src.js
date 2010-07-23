@@ -34,10 +34,8 @@
                 c.showMenu = function() {
                     t.ed.execCommand('openTableGridPopup');
                 };
-
                 return c;
             }
-
             return null;
         },
 
@@ -102,10 +100,10 @@
         getInfo : function() {
             return {
                 longname : 'Table Grid',
-                author : 'Thomas Andersen (thomas@mr-andersen.no)',
+                author : 'thomas@mr-andersen.no',
                 authorurl : 'http://www.mr-andersen.no.com',
                 infourl : 'http://www.mr-andersen.no.com',
-                version : '0.1'
+                version : '1.0'
             };
         },
 
@@ -179,17 +177,13 @@
             }
 
             var splitButton = dom.select('#' + ed.id + '_grid', document)[0];
-
-            // The DOM getPos and getRect does not seem to play well in IE if the element is not in the editor document.
             var splitButtonPos = dom.getPos(splitButton, document.getElementsByTagName('body')[0]);
             var splitButtonRect = dom.getRect(splitButton);
             var popupTopPos = splitButtonPos.y + splitButtonRect.h;
             var popupLeftPos = splitButtonPos.x;
            
             dom.addClass(splitButton, 'mceSplitButtonSelected');
-
             dom.show(popup);
-
             dom.setStyles(popup, {
                 'top' : (popupTopPos + 'px'),
                 'left' : (popupLeftPos + 'px')
