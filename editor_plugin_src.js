@@ -10,7 +10,7 @@
 
 (function() {
     tinymce.PluginManager.requireLangPack('tablegrid');
-    /**/
+
     tinymce.create('tinymce.plugins.TableGrid', {
         createControl: function(n, cm) {
             var t = this, ed = t.ed;
@@ -97,7 +97,7 @@
                 author : 'thomas@mr-andersen.no',
                 authorurl : 'http://www.mr-andersen.no.com',
                 infourl : 'http://www.mr-andersen.no.com',
-                version : '1.0'
+                version : '@@tablegrid_version@@'
             };
         },
 
