@@ -10,7 +10,7 @@
 
 (function() {
     tinymce.PluginManager.requireLangPack('tablegrid');
-
+    /**/
     tinymce.create('tinymce.plugins.TableGrid', {
         createControl: function(n, cm) {
             var t = this, ed = t.ed;
