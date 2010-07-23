@@ -8,12 +8,6 @@
  * Contributing: http://tinymce.moxiecode.com/contributing
  */
 
-/**
- * Warning!
- *
- * This plugin is under development and should not be used for production.
- */
-
 (function() {
     tinymce.PluginManager.requireLangPack('tablegrid');
 
