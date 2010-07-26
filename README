@@ -2,6 +2,11 @@ TinyMCE Table Grid Plug-in
 
 Draw a table on a grid and insert it into TinyMCE
 
+
+Tested with: TinyMCE 3.2.7, TinyMCE 3.3.8
+Firefox 3.6.6, Opera 10, Safari 5, Chrome 5, IE 6, IE 7, IE 8
+
+
 Installation
 ============
 * Make sure the table plug-in is added to the plug-ins configuration.
@@ -19,6 +24,3 @@ Add these to the TinyMCE configuration object:
 
 tablegrid_row_size: <int> - Amount of rows in the grid.
 tablegrid_col_size: <int> - Amount of columns in the grid.
-
-Tested with: TinyMCE 3.2.7, TinyMCE 3.3.8
-Firefox 3.6.6, Opera 10, Safari 5, Chrome 5, IE 6, IE 7, IE 8
