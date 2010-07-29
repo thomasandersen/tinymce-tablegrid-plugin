@@ -97,7 +97,7 @@
                 author : 'thomas@mr-andersen.no',
                 authorurl : 'http://www.mr-andersen.no.com',
                 infourl : 'http://www.mr-andersen.no.com',
-                version : '@@tablegrid_version@@'
+                version : '1.1'
             };
         },
 
@@ -236,7 +236,7 @@
                 'row' : rowIndex,
                 'col' : columnIndex,
                 'class' : 'tg-blank'
-            }, '&nbsp;');
+            }, '');
 
             dom.add(tdElement, aElement);
 
